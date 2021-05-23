@@ -1,0 +1,36 @@
+<html xmlns:th="https://www.thymeleaf.org"
+      th:replace="~{fragments/layout :: layout (~{::body})}">
+  <body>
+    <h1>Add a New Pet</h1>
+
+    <form action="/pets" method="POST" th:object="${pet}">
+      <div>
+        <label for="name">Name</label>
+        <input type="text" th:field="*{name}" />
+      </div>
+      <div>
+        <label for="species">Species</label>
+        <input type="text" th:field="*{species}" />
+      </div>
+      <div>
+        <label for="breed">Breed</label>
+        <input type="text" th:field="*{breed}" />
+      </div>
+      <div>
+        <label for="age">Age</label>
+        <input type="number" th:field="*{age}" />
+      </div>
+      <div>
+        <p>Neutered:
+          <label>Yes
+            <input type="radio" th:field="*{neutered}" value="true">
+          </label>
+          <label>No
+            <input type="radio" th:field="*{neutered}" value="false">
+          </label>
+        </p>
+      </div>
+      <div><input type="submit" value="Add Pet" /></div>
+    </form>
+  </body>
+</html>
